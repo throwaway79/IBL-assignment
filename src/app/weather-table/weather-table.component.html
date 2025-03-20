@@ -1,0 +1,28 @@
+<mat-card class="table-card">
+    <table>
+    @for(tableId of tableIds; track tableId) {
+        <tr class="id-row">
+            <td class="id-cell">{{tableId}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+        @if(tableData && tableData[tableId]) {
+            @for(tableReport of tableData[tableId]; track tableReport) {
+                <tr class="report-row">
+                    <td>{{tableReport.type}}</td>
+                    <td>{{tableReport.time | date:"dd.M.yyyy hh:mm:ss"}}</td>
+                    <td class="body-cell" [innerHTML]="tableReport.body"></td>
+                </tr>
+            }
+        }
+    } @empty {
+        @if(!loading) {
+            <p class="empty-msg">{{ firstSearch ? 'Please select at least one message type and a country/airport to create a briefing.' : 'No results for given criteria.'}}</p>
+        }
+    }
+    </table>
+    @if(loading) {
+        <span class="loader"></span>
+    }
+</mat-card>
+

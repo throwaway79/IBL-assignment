@@ -1,0 +1,46 @@
+<mat-card class="input-card">
+    <form [formGroup]="filterForm">
+        <div class="filter-content">
+
+            <div class="checkbox-col">
+                <p>Message types:</p>
+                    @for (item of messageTypes; track item) {
+                        <mat-checkbox
+                        [checked]="selectedMessageTypes.includes(item)"
+                        (change)="messageTypeChecked($event, item)"
+                        >
+                        {{item}}
+                        </mat-checkbox>
+                    }
+            </div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Airports</mat-label>
+                <mat-select formControlName="airports" multiple>
+                    <mat-select-trigger>
+                        {{filterForm.get('airports')?.value?.join(' ')}}
+                    </mat-select-trigger>
+                    @for (airport of airports; track airport) {
+                        <mat-option [value]="airport">{{airport}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Countries</mat-label>
+                <mat-select formControlName="countries" multiple>
+                    <mat-select-trigger>
+                        {{filterForm.get('countries')?.value?.join(' ')}}
+                    </mat-select-trigger>
+                    @for (country of countries; track country) {
+                        <mat-option [value]="country">{{country}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <div class="btn-row">
+                <button [disabled]="filterForm.invalid" (click)="submitForm()" mat-flat-button type="submit">Create Briefing</button>
+            </div>
+        </div>
+    </form>
+</mat-card>

@@ -1,0 +1,78 @@
+.table-card {
+    padding: 25px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+table {
+    overflow-y: scroll;
+    border-spacing: 0;
+    .id-row {
+        background-color: rgb(219, 219, 219);
+    }
+    .id-cell {
+        font-weight: 500;
+        border: 0;
+    }
+}
+
+td {
+    padding: 15px 20px;
+}
+
+.empty-msg {
+    width: 90%;
+    position: absolute;
+    top: 40%;
+    opacity: 0.8;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.report-row {
+    td {
+        font-size: 15px;
+    }
+    .body-cell {
+        max-width: 410px;
+    }
+}
+
+.loader {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    width: 68px;
+    height: 68px;
+    border: 5px solid #2f3ec5;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
+@media (max-width: 850px) {
+    td {
+        padding: 4px 7px;
+    }    
+    .table-card {
+        padding: 13px;
+        height: 60vh;
+    }
+}
+
+@media (min-width: 850px) {
+    .table-card {
+        height: 90vh;
+    }
+}

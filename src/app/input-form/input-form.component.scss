@@ -1,0 +1,30 @@
+.checkbox-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.input-card {
+    padding: 20px;
+}
+
+.btn-row {
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+.filter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media (max-width: 850px) {
+    .filter-content {
+        gap: 4px;
+    }
+    .input-card {
+        padding: 8px;
+    }
+}
